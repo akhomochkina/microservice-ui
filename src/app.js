@@ -1,5 +1,9 @@
 import { Auth, getUser } from "./auth";
-import { getUserFragments, postUserFragments } from "./api";
+import {
+  getUserFragments,
+  postUserFragments,
+  getUserFragmentsById,
+} from "./api";
 
 async function init() {
   // Get our UI elements
@@ -8,6 +12,7 @@ async function init() {
   const logoutBtn = document.querySelector("#logout");
   const addButton = document.querySelector("#add-fragment");
   const getButton = document.querySelector("#get-fragment");
+  const getbyidButton = document.querySelector("#get-fragment-byid");
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -44,14 +49,18 @@ async function init() {
   getUserFragments(user);
 
   addButton.onclick = () => {
-    let data = document.querySelector("#data").value;
-    let type = "text/plain";
+    var data = document.querySelector("#data").value;
+    var type = "text/plain";
     postUserFragments(user, data, type);
   };
 
   getButton.onclick = () => {
-    console.log("getBtn was clicked");
     console.log(getUserFragments(user));
+  };
+
+  getbyidButton.onclick = () => {
+    var id = document.querySelector("#databyid").value;
+    console.log(getUserFragmentsById(user, id));
   };
 }
 

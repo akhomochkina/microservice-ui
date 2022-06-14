@@ -26,6 +26,23 @@ export async function getUserFragments(user) {
   }
 }
 
+export async function getUserFragmentsById(user, id) {
+  console.log("Requesting user fragments data...");
+  try {
+    const res = await fetch(`${apiUrl}/v1/fragments/${id}`, {
+      // Generate headers with the proper Authorization bearer token to pass
+      headers: user.authorizationHeaders(),
+    });
+    if (!res.ok) {
+      throw new Error(`${res.status} ${res.statusText}`);
+    }
+    const data = await res.text();
+    console.log(`Got user fragments data id: ${id}:`, { data });
+  } catch (err) {
+    console.error(`Unable to call GET /v1/fragment/${id}`, { err });
+  }
+}
+
 export async function postUserFragments(user, data, type) {
   try {
     const res = await fetch(`${apiUrl}/v1/fragments`, {
@@ -38,7 +55,6 @@ export async function postUserFragments(user, data, type) {
     });
 
     console.log("Following data has been posted: ", data);
-    console.log(res);
   } catch (error) {
     console.error("Issue with post", { error });
   }
