@@ -16,14 +16,24 @@
     
   </section>
   <section id="fragment-section">  
-    <div class="add-fragment-container">
+    <div class="fragment-container">
       <br>
-      <label for="fragment-type">Fragment:</label>
+      <label>Select fragment type:</label>
+      <select id="fragment-types">
+          <option value="text/plain">application/json</option>
+          <option value="text/markdown">text/html</option>
+          <option value="text/html">text/plain</option>
+          <option value="application/json">text/markdown</option>
+      </select>
+
+      <br>
+      <br>
+      <label>Fragment:</label>
         <textarea type="text" id="data"></textarea>      <br>
       <br>
       <button id="add-fragment">Submit Data</button> <br><br>
       <button id="get-fragment">Get all fragments</button> <br><br>
-      <label for="fragment-type">Provide fragment ID:</label>
+      <label>Provide fragment ID:</label>
         <textarea type="text" id="databyid"></textarea>      <br>
       <br>
       <button id="get-fragment-byid">Get Data by ID</button>

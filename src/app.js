@@ -50,7 +50,7 @@ async function init() {
 
   addButton.onclick = () => {
     var data = document.querySelector("#data").value;
-    var type = "text/plain";
+    var type = document.querySelector("#fragment-types").value;
     postUserFragments(user, data, type);
   };
 
