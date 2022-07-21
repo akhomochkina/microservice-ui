@@ -14,9 +14,12 @@
   "author": "Anastasia Khomochkina",
   "license": "UNLICENSED",
   "devDependencies": {
-    "parcel": "^2.6.2"
+    "parcel": "^2.6.2",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1"
   },
   "dependencies": {
-    "aws-amplify": "^4.3.22"
+    "aws-amplify": "^4.3.22",
+    "markdown-it": "^13.0.1"
   }
 }

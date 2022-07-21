@@ -3,6 +3,8 @@ import {
   getUserFragments,
   postUserFragments,
   getUserFragmentsById,
+  getUserFragmentsExpand,
+  getUserFragmentsByIdInfo,
 } from "./api";
 
 async function init() {
@@ -13,6 +15,7 @@ async function init() {
   const addButton = document.querySelector("#add-fragment");
   const getButton = document.querySelector("#get-fragment");
   const getbyidButton = document.querySelector("#get-fragment-byid");
+  const getbyidInfo = document.querySelector("#get-fragment-byidinfo");
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -55,12 +58,17 @@ async function init() {
   };
 
   getButton.onclick = () => {
-    console.log(getUserFragments(user));
+    console.log(getUserFragmentsExpand(user, (expand = 1)));
   };
 
   getbyidButton.onclick = () => {
     var id = document.querySelector("#databyid").value;
     console.log(getUserFragmentsById(user, id));
+  };
+
+  getbyidInfo.onclick = () => {
+    var id = document.querySelector("#databyid").value;
+    console.log(getUserFragmentsByIdInfo(user, id));
   };
 }
 
