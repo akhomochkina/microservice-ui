@@ -1,8 +1,9 @@
 // src/api.js
 
 // fragments microservice API, defaults to localhost:8080
-// const apiUrl = process.env.API_URL;
-const apiUrl = "http://localhost:8080";
+//const apiUrl = process.env.API_URL;
+const apiUrl =
+  "http://Fragments-env.eba-jgqek6rk.us-east-1.elasticbeanstalk.com";
 //const apiUrl = "http://localhost:8080";
 
 /**
