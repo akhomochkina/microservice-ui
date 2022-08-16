@@ -100,3 +100,41 @@ export async function postUserFragments(user, data, type) {
     console.error("Issue with post", { error });
   }
 }
+
+export async function updateUserFragment(user, data, type, id) {
+  try {
+    if (type == "application/json") data = JSON.parse(JSON.stringify(data));
+
+    const res = await fetch(`${apiUrl}/v1/fragments/${id}`, {
+      method: "put",
+      headers: {
+        Authorization: `Bearer ${user.idToken}`,
+        "Content-type": type,
+      },
+      body: data,
+    });
+
+    const info = await res.json();
+    console.log("Following data has been updated: ", data);
+    console.log(info);
+  } catch (error) {
+    console.error("Issue with update", { error });
+  }
+}
+
+export async function deleteUserFragment(user, id) {
+  try {
+    const res = await fetch(`${apiUrl}/v1/fragments/${id}`, {
+      method: "delete",
+      headers: {
+        Authorization: `Bearer ${user.idToken}`,
+      },
+    });
+
+    const info = await res.json();
+    console.log("Fragment has been deleted:");
+    console.log(info);
+  } catch (error) {
+    console.error("Issue with delete", { error });
+  }
+}
